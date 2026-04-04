@@ -1,0 +1,54 @@
+version: '3'
+
+tasks:
+  install:
+    desc: 依存関係をインストール
+    cmds:
+      - bun install
+
+  dev:
+    desc: 開発サーバー（Vite）を起動
+    deps:
+      - install
+    cmds:
+      - bun run dev
+
+  worker:dev:
+    desc: Cloudflare Workers をローカル起動
+    aliases:
+      - worker-dev
+    deps:
+      - install
+    cmds:
+      - mkdir -p dist
+      - bun run worker:dev
+
+  worker:deploy:
+    desc: Workers へデプロイ
+    aliases:
+      - worker-deploy
+    deps:
+      - install
+    cmds:
+      - bun run worker:deploy
+
+  build:
+    desc: プロダクションビルド
+    deps:
+      - install
+    cmds:
+      - bun run build
+
+  deploy:
+    desc: ビルドして Cloudflare へデプロイ
+    deps:
+      - build
+    cmds:
+      - bun run worker:deploy
+
+  preview:
+    desc: ビルド成果物をプレビュー
+    deps:
+      - build
+    cmds:
+      - bun run preview
