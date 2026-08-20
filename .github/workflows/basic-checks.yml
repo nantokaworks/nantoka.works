@@ -1,0 +1,10 @@
+name: Basic Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    uses: nantokaworks/.github/.github/workflows/basic-checks.yml@main
