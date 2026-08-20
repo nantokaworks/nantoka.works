@@ -3,15 +3,7 @@ export type AppLocale = 'ja' | 'en'
 export const links = [
   {
     label: 'GitHub',
-    href: 'https://github.com/ichi0g0y',
-  },
-  {
-    label: 'Twitter',
-    href: 'https://x.com/ichi0g0y',
-  },
-  {
-    label: 'Twitch',
-    href: 'https://www.twitch.tv/ichi0g0y',
+    href: 'https://github.com/nantokaworks',
   },
 ] as const
 
@@ -41,8 +33,8 @@ export function createIntroMessage(locale: AppLocale) {
   const greeting = getGreetingByHour(new Date(), locale)
 
   if (locale === 'en') {
-    return `${greeting},\n\nWelcome to NANTOKAWORKS.\n\nA casual programmer based in Japan. Building vibe-coded projects on GitHub, streaming work chats and games on Twitch.\n\nFeel free to say hi anytime.`
+    return `${greeting},\n\nWelcome to NANTOKAWORKS.\n\nA casual programmer based in Japan. Building vibe-coded projects on GitHub.\n\nFeel free to say hi anytime.`
   }
 
-  return `${greeting}、\n\nNANTOKAWORKS へようこそ。\n\n日本在住のライトプログラマー。GitHubではバイブコーディングを中心に制作し、Twitchでは作業雑談やゲーム配信を不定期で行っています。\n\n気になったら気軽に声をかけてください。`
+  return `${greeting}、\n\nNANTOKAWORKS へようこそ。\n\n日本在住のライトプログラマー。GitHubではバイブコーディングを中心に制作しています。\n\n気になったら気軽に声をかけてください。`
 }
